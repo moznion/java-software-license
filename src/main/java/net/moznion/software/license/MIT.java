@@ -4,12 +4,11 @@ import java.util.OptionalDouble;
 
 public class MIT extends AbstractLicense {
   public MIT(String holder) {
-    this(holder, DateUtil.getCurrentYear());
+    super(holder);
   }
 
   public MIT(String holder, int year) {
-    this.holder = holder;
-    this.year = year;
+    super(holder, year);
   }
 
   @Override

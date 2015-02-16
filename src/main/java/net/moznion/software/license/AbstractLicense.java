@@ -2,17 +2,18 @@ package net.moznion.software.license;
 
 import java.util.OptionalDouble;
 
-public abstract class AbstractLicense implements License {
-  public int year;
-  public String holder;
+public abstract class AbstractLicense {
+  final private int year;
+  final private String holder;
 
-  final public int getYear() {
-    return year;
-  };
+  public AbstractLicense(String holder) {
+    this(holder, DateUtil.getCurrentYear());
+  }
 
-  final public String getHolder() {
-    return holder;
-  };
+  public AbstractLicense(String holder, int year) {
+    this.holder = holder;
+    this.year = year;
+  }
 
   abstract public String getName();
 
@@ -21,6 +22,14 @@ public abstract class AbstractLicense implements License {
   abstract public OptionalDouble getVersion();
 
   abstract public String getText();
+
+  final public int getYear() {
+    return year;
+  };
+
+  final public String getHolder() {
+    return holder;
+  };
 
   public String getNotice() {
     return new StringBuilder("This software is Copyright (c) ")
